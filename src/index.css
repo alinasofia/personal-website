@@ -1,4 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&family=Press+Start+2P&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Stack+Sans+Notch&display=swap');
+
 
 html {
   scroll-behavior: smooth;
@@ -13,7 +15,7 @@ html {
   --ink-soft: #4b5563;
   --accent: #8ac6b5;
   --shadow: #cdd8e6;
-  --border: #9fb6d6;
+  --border: #d2d69f;
   --px: 4px;
   --radius: 14px;
   --maxw: 1100px;
@@ -96,8 +98,8 @@ h1 {
   color: #F6E3A2;
 }
 .avatar-img {
-  width: 48px;
-  height: 48px;
+  width: 70px;
+  height: 70px;
   border-radius: 8px;
   border: 3px solid #e0d2a9;
   object-fit: cover;
@@ -166,6 +168,50 @@ nav {
   display: block;
   image-rendering: pixelated;
 }
+
+.scene-couch {
+  position: absolute;
+  left: 0;                 /* Push all the way to the left */
+  bottom: 100px;               /* Align with floor or bottom of scene */
+  width: 280px;            /* Adjust size as needed */
+  image-rendering: pixelated; /* Keeps pixel-art crisp */
+  z-index: 2;              /* Place above background but below desk if needed */
+}
+
+.cat {
+  position: absolute;
+  left: 60px;
+  bottom: 190px;
+  width: 100px;
+  z-index: 5;
+  pointer-events: auto;
+}
+
+.cat img {
+  width: 100%;
+  image-rendering: pixelated;
+  display: block;
+  transition: opacity 0.2s ease;
+}
+
+.cat-img-hover {
+  position: absolute;
+  inset: 0;
+  opacity: 0;
+  transform: translateY(0);         /* start aligned */
+  transition: opacity 0.2s ease, transform 0.25s ease;
+}
+
+.cat:hover .cat-img-hover {
+  opacity: 1;
+  transform: translateY(-50px);     /* 👈 raise by ~10px */
+}
+
+.cat:hover .cat-img {
+  opacity: 0;
+}
+
+
 
 .candle {
   position: absolute;
@@ -260,6 +306,7 @@ nav {
   filter: brightness(1.1);
 }
 
+
 /* content sections */
 section.content-block {
   max-width: 1100px;
@@ -330,22 +377,33 @@ section.content-block p {
 
 /* cards */
 .card {
-  background: #975E20;
-  border: 3px solid #764919;
+  background: #cdbe9a;
+  border: 3px solid #4f2f0d;
   border-radius: 10px;
   padding: 14px 16px;
   color: #3f2d20;
   box-shadow: 3px 3px 0 #50300d;
   transition: transform 0.15s ease, filter 0.15s ease;
 }
+
 .card h3 {
-  color: #eedca8;
-  font-weight: 700;
-  text-shadow: 1px 1px 0 #968033; /* light pastel outline */
+  font-family: 'Stack Sans Notch', sans-serif;
+  color: #56410d;
+  font-size: 1.4rem;
+  letter-spacing: 1px;
+  margin-bottom: 0.75rem;
+  text-align: left;
 }
+
 .card p {
-  margin: 0 0 6px 0;
+  font-family: 'Stack Sans Notch', sans-serif;
+  color: #533b0d !important;
+  font-size: 1rem;
+  text-align: left;
+  line-height: 1.6;
 }
+
+
 .card:hover {
   transform: scale(1.02);
   filter: brightness(1.03);
@@ -356,6 +414,18 @@ section.content-block p {
   z-index: 2000;
   transition: opacity 0.4s ease, transform 0.3s ease;
 }
+
+.content-block {
+  margin-bottom: 70px; /* adjust spacing — try 4rem–6rem */
+}
+
+.content-block h2 {
+  text-align: center;
+  margin-bottom: 2rem; /* adds a little gap below the title */
+  color: var(--butter); /* optional: match your theme */
+  font-family: 'Press Start 2P', sans-serif; /* pixel aesthetic if you want */
+}
+
 
 .scroll-button.top {
   top: 32px;                   /* position for upward arrow */
@@ -385,8 +455,49 @@ section.content-block p {
   box-shadow: 3px 3px 8px rgba(246, 227, 162, 0.3);
 }
 
+#about {
+  text-align: center;
+  max-width: var(--maxw);
+  margin: 0 auto;
+  color: var(--white);
+  margin-bottom: 6rem;
+}
 
+.about-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 2rem;
+  margin-top: 3rem;
+}
 
+.about-card {
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 1.2rem;
+  box-shadow: 0 0 12px rgba(0,0,0,0.3);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.about-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 6px 16px rgba(0,0,0,0.4);
+}
+
+.about-card img {
+  width: 80%;
+  height: 220px;
+  object-fit: cover;
+  border-radius: var(--radius);
+  margin-bottom: 1rem;
+}
+
+.about-card p {
+  font-family: 'Inter', sans-serif;
+  font-size: 0.95rem;
+  color: #bab65b;
+  line-height: 1.5;
+}
 
 /* footer */
 footer {

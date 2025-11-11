@@ -6,6 +6,9 @@ import plant from "../images/plant.png";
 import candle from "../images/candle.png";
 import bookshelf from "../images/bookshelf.png";
 import papers from "../images/papers.png";
+import couch from "../images/couch.png";
+import cat from "../images/cat.png";
+import catHover from "../images/cat-hover.png";
 
 export default function Scene() {
   return (
@@ -22,6 +25,11 @@ export default function Scene() {
         {/* window 2 */}
         <div className="window2" aria-hidden="true">
           <img src={window2Img} alt="Second pixel window" className="window2-img" />
+        </div>
+
+        {/* couch on the far left */}
+        <div className="couch" aria-hidden="true">
+          <img src={couch} alt="Couch" className="scene-couch" />
         </div>
 
         <div className="room-layer">
@@ -49,6 +57,12 @@ export default function Scene() {
           <div className="candle" aria-hidden="true">
             <img src={candle} alt="Pixel candle" className="candle-img" />
           </div>
+
+          <div className="cat" aria-hidden="true">
+          <img src={cat} alt="Cat" className="cat-img" />
+          <img src={catHover} alt="Cat hover" className="cat-img-hover" />
+        </div>
+
         </div>
       </section>
     </div>
